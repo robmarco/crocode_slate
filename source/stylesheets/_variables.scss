@@ -1,0 +1,103 @@
+/*
+ * 	 _____ _____   ____   _____ ____  _____  ______
+ *  / ____|  __ \ / __ \ / ____/ __ \|  __ \|  ____|
+ * | |    | |__) | |  | | |   | |  | | |  | | |__
+ * | |    |  _  /| |  | | |   | |  | | |  | |  __|
+ * | |____| | \ \| |__| | |___| |__| | |__| | |____
+ *  \_____|_|  \_\\____/ \_____\____/|_____/|______|
+ *
+ *  @author CROCODΞ
+ *  @author_site http://www.crocode.mobi
+ *  @description Variables used in screen.css.scss
+ *
+ */
+
+/* Branding Customization (Use your own colours)
+ ============================================ */
+$nav-active-bg: #a18dcc;
+$nav-text:  #56478f;
+$nav-active-text:  #fff;
+$anchor-text: #0099e5;
+$anchor-text-hover: #333;
+$search-highlight-bg-c1: #f7e633;
+$search-highlight-bg-c2: #f1d32f;
+$alert-notice-bg:  #a18dcc;
+$alert-warning-bg: #f65060;
+$alert-success-bg: #6ac174;
+
+/* Main
+ =================================== */
+$main-bg: #fff;
+
+/* Navigation
+ =================================== */
+$nav-bg: #fff;
+$nav-border-bg: #eee;
+$nav-subitem-bg: #fff;
+$nav-active-shadow: #fff;
+$nav-footer-border-color: #eee;
+$nav-embossed-border-top: #000;
+$nav-embossed-border-bottom: #fff;
+$main-embossed-text-shadow: 0px 0px 0px #fff;
+$search-box-border-color: #fff;
+
+/* Code Sample and Languages
+ =================================== */
+$examples-bg: #292d33;
+$code-bg: #292d33;
+$code-annotation-bg: #292d33;
+$code-example-bg: #212429;
+$lang-select-bg: #222;
+$lang-select-border: #000;
+$lang-select-active-bg: $examples-bg; // feel free to change this to blue or something
+$lang-select-pressed-bg: #111; // color of language tab bg when mouse is pressed
+
+/* Text Colors
+ =================================== */
+$main-text: #333; // main content text color
+$lang-select-text: #fff; // color of unselected language tab text
+$lang-select-active-text:  #fff; // color of selected language tab text
+$lang-select-pressed-text: #fff; // color of language tab text when mouse is pressed
+
+/* Sizes
+ =================================== */
+$logo-margin: 20px; // margin between nav items and logo, ignored if search is active
+$main-padding: 28px; // padding to left and right of content & examples
+$nav-width: 230px; // width of the navbar
+$nav-border-width: 1px;
+$nav-padding: 15px; // padding to left and right of navbar
+$nav-v-padding: 10px; // padding used vertically around search boxes and results
+$nav-indent: 10px; // extra padding for ToC subitems
+$examples-width: 50%; // portion of the screen taken up by code examples
+$code-annotation-padding: 13px; // padding inside code annotations
+$tablet-width: 930px; // min width before reverting to tablet size
+$phone-width: $tablet-width - $nav-width; // min width before reverting to mobile size
+$h1-margin-bottom: 21px; // padding under the largest header tags
+$h1-font-size: 30px;
+$h2-font-size: 20px;
+$h3-font-size: 12px;
+$h4-font-size: 10px;
+
+/* Fonts
+ =================================== */
+ %default-font {
+  font-family: 'Lato', Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+%header-font {
+  @extend %default-font;
+  font-weight: bold;
+}
+
+%code-font {
+  font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+%break-words {
+    word-break: break-all;
+    hyphens: auto;
+}

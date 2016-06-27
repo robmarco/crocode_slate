@@ -1,0 +1,113 @@
+<!--
+ * 	 _____ _____   ____   _____ ____  _____  ______
+ *  / ____|  __ \ / __ \ / ____/ __ \|  __ \|  ____|
+ * | |    | |__) | |  | | |   | |  | | |  | | |__
+ * | |    |  _  /| |  | | |   | |  | | |  | |  __|
+ * | |____| | \ \| |__| | |___| |__| | |__| | |____
+ *  \_____|_|  \_\\____/ \_____\____/|_____/|______|
+ *
+ *  @author CROCODΞ
+ *  @author_site http://www.crocode.mobi
+ *  @project Voze
+ *  @description MiddlemanApp based on Slate
+ *
+ -->
+<% language_tabs = current_page.data.language_tabs || [] %>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title><%= current_page.data.title || "API Documentation" %></title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <!-- CSS Styles -->
+    <style><%= Rouge::Themes::Monokai.render(:scope => '.highlight') %></style>
+    <%= stylesheet_link_tag :screen, media: :screen %>
+    <%= stylesheet_link_tag :print, media: :print %>
+    <!-- end CSS Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Merriweather:400,700" rel="stylesheet">
+  </head>
+  <!-- Begin Body content -->
+  <body class="<%= page_classes %>" data-languages="<%=h language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>">
+    <!-- Navigation bar -->
+    <a href="#" id="nav-button">
+      <span>
+        <%= image_tag('navbar.png') %>
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <% if current_page.data.logo_name %>
+        <%= image_tag current_page.data.logo_name %>
+      <% else %>
+        <%= image_tag "logo_crocode.png" %>
+      <% end %>
+      <% if language_tabs %>
+        <div class="lang-selector">
+          <% language_tabs.each do |lang| %>
+            <% if lang.is_a? Hash %>
+              <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+            <% else %>
+              <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+      <!-- Search textfield -->
+      <% if current_page.data.search %>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <% end %>
+      <!-- end Search textfield-->
+      <!-- Table of content -->
+      <div id="toc">
+      </div>
+      <% if current_page.data.toc_footers %>
+        <ul class="toc-footer">
+          <% current_page.data.toc_footers.each do |footer| %>
+            <li><%= footer %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <!-- end Table of content -->
+    </div>
+    <!-- end Navigation bar -->
+
+    <!-- Main content -->
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <%= yield %>
+        <% current_page.data.includes && current_page.data.includes.each do |include| %>
+          <%= partial "includes/#{include}" %>
+        <% end %>
+      </div>
+      <!-- Example code content -->
+      <div class="dark-box">
+        <% if language_tabs %>
+          <div class="lang-selector">
+            <% language_tabs.each do |lang| %>
+              <% if lang.is_a? Hash %>
+                <a href="#" data-language-name="<%= lang.keys.first %>"><%= lang.values.first %></a>
+              <% else %>
+                <a href="#" data-language-name="<%= lang %>"><%= lang %></a>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <!-- end Example code content -->
+    </div>
+    <!-- end Main content -->
+
+    <!-- Javascripts -->
+    <% if current_page.data.search %>
+      <%= javascript_include_tag  "all" %>
+    <% else %>
+      <%= javascript_include_tag  "all_nosearch" %>
+    <% end %>
+    <!-- end Javascripts -->
+  </body>
+</html>
