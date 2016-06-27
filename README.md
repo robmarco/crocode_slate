@@ -1,4 +1,4 @@
-<p align="center">This documentation is generated using the amazing [Slate](https://github.com/lord/slate) framework.</p>
+This documentation is generated using the amazing [Slate](https://github.com/lord/slate) framework.
 
 Getting Started
 ----------------------
@@ -33,6 +33,5 @@ You can now see the docs at http://localhost:4567. Whoa! That was fast!
 Contributors
 --------------------
 
-Slate was built by [Robert Lord](https://lord.io) while at [TripIt](https://www.tripit.com/).
-
-Also, thanks to [Sauce Labs](http://saucelabs.com) for helping sponsor the project.
+The main contributor to this fork is [Roberto Marco](https://github.com/robmarco).
+Slate Framework was built by [Robert Lord](https://lord.io) while at [TripIt](https://www.tripit.com/).
